@@ -204,11 +204,11 @@
     position: absolute;
     padding: 5px 10px;
     background-color: rgba(0, 0, 0, 0.7);
-    color: #fff;
+    color: #ffffff;
     border-radius: 3px;
     pointer-events: none;
     white-space: pre-wrap; /* Allows new lines */
-    transform: translate(-50%, -150%);
+    transform: translateX(-50%);
     z-index: 10;
   }
 </style>

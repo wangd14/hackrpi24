@@ -21,6 +21,8 @@
     "svelte": "^3.0.0"
   },
   "dependencies": {
+    "@mapbox/mapbox-gl-draw": "^1.4.3",
+    "@turf/turf": "^7.1.0",
     "maplibre-gl": "^1.15.2",
     "sirv-cli": "^1.0.0"
   }

@@ -1,14 +1,33 @@
 <script>
   import { onMount, onDestroy } from 'svelte';
   import { Map, NavigationControl } from 'maplibre-gl';
+  import MapboxDraw from '@mapbox/mapbox-gl-draw';
   import 'maplibre-gl/dist/maplibre-gl.css';
+  import * as turf from '@turf/turf';
   import { parkSugesstionList } from '../../data/parkSuggestionInfo';
+  import '@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.css';
+
 
   let map;
   let mapContainer;
   let tooltipContent = ''; // To hold the tooltip content
   let tooltipPosition = { x: 0, y: 0 };
   let showTooltip = false;
+  let calculatedArea = '';
+  let draw;
+
+  function updateArea(e) {
+    const data = draw.getAll();
+    if (data.features.length > 0) {
+      const area = turf.area(data);
+      calculatedArea = Math.round(area * 100) / 100;
+    } else {
+      calculatedArea = '';
+      if (e.type !== 'draw.delete') {
+        alert('Use the draw tools to draw a polygon!');
+      }
+    }
+  }
 
   onMount(() => {
     const { env } = _process;
@@ -20,13 +39,31 @@
 
     const initialState = { lng: -73.6875, lat: 42.728104, zoom: 14 };
 
+    MapboxDraw.constants.classes.CONTROL_BASE  = 'maplibregl-ctrl';
+    MapboxDraw.constants.classes.CONTROL_PREFIX = 'maplibregl-ctrl-';
+    MapboxDraw.constants.classes.CONTROL_GROUP = 'maplibregl-ctrl-group';
+
     map = new Map({
       container: mapContainer,
       style: `https://api.maptiler.com/maps/streets/style.json?key=${apiKey}`,
       center: [initialState.lng, initialState.lat],
       zoom: initialState.zoom
     });
+
+    draw = new MapboxDraw({
+      displayControlsDefault: false,
+      controls: {
+        polygon: true,
+        trash: true
+      }
+    });
+
     map.addControl(new NavigationControl(), 'top-right');
+    map.addControl(draw, 'top-right');
+
+    map.on('draw.create', updateArea);
+    map.on('draw.delete', updateArea);
+    map.on('draw.update', updateArea);
 
     let hoveredStateId = null;
 
@@ -99,9 +136,14 @@
 </script>
 
 <div class="map-wrap">
-  <a href="https://www.maptiler.com" class="watermark"><img
-      src="https://api.maptiler.com/resources/logo.svg" alt="MapTiler logo"/></a>
   <div class="map" id="map" bind:this={mapContainer}></div>
+  {#if calculatedArea}
+    <div class="calculation-box">
+      <p>Drawn Area:</p>
+      <p><strong>{calculatedArea}</strong></p>
+      <p>square meters</p>
+    </div>
+  {/if}
 
   <!-- Tooltip div -->
   {#if showTooltip}
@@ -112,8 +154,17 @@
 </div>
 
 <style>
+.calculation-box {
+  height: 75px;
+  width: 150px;
+  position: absolute;
+  bottom: 40px;
+  left: 10px;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 15px;
+  text-align: center;
+}
 .map-wrap {
-  position: relative;
   width: 100%;
   height: 100vh;
 }
@@ -134,9 +185,5 @@
   white-space: nowrap;
   transform: translate(-50%, -150%);
   z-index: 10;
-}
-
-.watermark {
-  visibility: hidden;
 }
 </style>

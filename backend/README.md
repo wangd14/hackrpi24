@@ -1,5 +1,5 @@
 First install fastapi:
-pip install "fastapi[standard]"
+pip install fastapi uvicorn sqlalchemy pydantic
 
 To start backend server:
-fastapi dev main.py
+uvicorn main:app --reload

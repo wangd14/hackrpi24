@@ -1,5 +1,5 @@
 <div class="heading">
-  <h1>This is my map App</h1>
+  <h1>Parks For Troy NY</h1>
 </div>
 
 <style>

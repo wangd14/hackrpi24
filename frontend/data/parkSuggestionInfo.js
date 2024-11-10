@@ -1,12 +1,22 @@
-const createParkInfo = (score, area, population_density, sunlight_hours, environmental_data, demographic_data, site_characteristics) => {
+const createParkInfo = (
+  score,
+  area,
+  population_density,
+  sunlight_hours,
+  environmental_data,
+  demographic_data,
+  site_characteristics
+) => {
   // Helper function to format data with uppercase keys and spaces instead of underscores
   const formatData = (data) => {
     return Object.entries(data)
       .map(([key, value]) => {
-        const formattedKey = key.replace(/_/g, ' ').replace(/\b\w/g, char => char.toUpperCase());
+        const formattedKey = key
+          .replace(/_/g, " ")
+          .replace(/\b\w/g, (char) => char.toUpperCase());
         return `${formattedKey}: ${value}`;
       })
-      .join('\n');
+      .join("\n");
   };
 
   // Format each data section
@@ -23,22 +33,30 @@ export const parkSugesstionList = [
     lat: 1,
     lon: 1,
     area: 25000,
-    info: createParkInfo(80, 25000, 12000, 7.5, {
-      vegetation_coverage: 15,
-      soil_quality: "Good",
-      water_sources: true,
-      air_quality_index: 65,
-    }, {
-      population_within_1km: 5700,
-      median_age: 43,
-      income_level: "Mixed",
-      foot_traffic: "Medium",
-    }, {
-      slope: "Flat",
-      current_use: "Senior Housing",
-      surrounding: ["Commercial", "Residential"],
-      noise_level: "Medium",
-    }),
+    info: createParkInfo(
+      80,
+      25000,
+      12000,
+      7.5,
+      {
+        vegetation_coverage: 15,
+        soil_quality: "Good",
+        water_sources: true,
+        air_quality_index: 65,
+      },
+      {
+        population_within_1km: 5700,
+        median_age: 43,
+        income_level: "Mixed",
+        foot_traffic: "Medium",
+      },
+      {
+        slope: "Flat",
+        current_use: "Senior Housing",
+        surrounding: ["Commercial", "Residential"],
+        noise_level: "Medium",
+      }
+    ),
     population_density: 5700,
     existing_green_space: 1,
     sunlight_hours: 7.1,
@@ -73,22 +91,30 @@ export const parkSugesstionList = [
     lat: 1,
     lon: 1,
     area: 19000,
-    info: createParkInfo(61, 19000, 4300, 7.3, {
-      vegetation_coverage: 84,
-      soil_quality: "Good",
-      water_sources: true,
-      air_quality_index: 65,
-    }, {
-      population_within_1km: 4300,
-      median_age: 37,
-      income_level: "Mixed",
-      foot_traffic: "Low",
-    }, {
-      slope: "Heavily Sloped",
-      current_use: "Parking Lot",
-      surrounding: ["Commercial", "Residential"],
-      noise_level: "Medium",
-    }),
+    info: createParkInfo(
+      61,
+      19000,
+      4300,
+      7.3,
+      {
+        vegetation_coverage: 84,
+        soil_quality: "Good",
+        water_sources: true,
+        air_quality_index: 65,
+      },
+      {
+        population_within_1km: 4300,
+        median_age: 37,
+        income_level: "Mixed",
+        foot_traffic: "Low",
+      },
+      {
+        slope: "Heavily Sloped",
+        current_use: "Parking Lot",
+        surrounding: ["Commercial", "Residential"],
+        noise_level: "Medium",
+      }
+    ),
     population_density: 4300,
     existing_green_space: 1,
     sunlight_hours: 7.3,
@@ -126,22 +152,30 @@ export const parkSugesstionList = [
     lat: 1,
     lon: 1,
     area: 7500,
-    info: createParkInfo(82, 7500, 5900, 7.7, {
-      vegetation_coverage: 74,
-      soil_quality: "Good",
-      water_sources: true,
-      air_quality_index: 63,
-    }, {
-      population_within_1km: 5900,
-      median_age: 27,
-      income_level: "Mixed",
-      foot_traffic: "High",
-    }, {
-      slope: "Slightly Sloped",
-      current_use: "Field",
-      surrounding: ["Commercial", "Residential"],
-      noise_level: "Medium",
-    }),
+    info: createParkInfo(
+      82,
+      7500,
+      5900,
+      7.7,
+      {
+        vegetation_coverage: 74,
+        soil_quality: "Good",
+        water_sources: true,
+        air_quality_index: 63,
+      },
+      {
+        population_within_1km: 5900,
+        median_age: 27,
+        income_level: "Mixed",
+        foot_traffic: "High",
+      },
+      {
+        slope: "Slightly Sloped",
+        current_use: "Field",
+        surrounding: ["Commercial", "Residential"],
+        noise_level: "Medium",
+      }
+    ),
     population_density: 5900,
     existing_green_space: 1,
     sunlight_hours: 7.7,
@@ -176,22 +210,30 @@ export const parkSugesstionList = [
     lat: 1,
     lon: 1,
     area: 73000,
-    info: createParkInfo(93, 73000, 5200, 7.9, {
-      vegetation_coverage: 93,
-      soil_quality: "Good",
-      water_sources: true,
-      air_quality_index: 87,
-    }, {
-      population_within_1km: 5200,
-      median_age: 43,
-      income_level: "Mixed",
-      foot_traffic: "Low",
-    }, {
-      slope: "Flat",
-      current_use: "Parking Lot",
-      surrounding: ["Residential"],
-      noise_level: "Medium",
-    }),
+    info: createParkInfo(
+      93,
+      73000,
+      5200,
+      7.9,
+      {
+        vegetation_coverage: 93,
+        soil_quality: "Good",
+        water_sources: true,
+        air_quality_index: 87,
+      },
+      {
+        population_within_1km: 5200,
+        median_age: 43,
+        income_level: "Mixed",
+        foot_traffic: "Low",
+      },
+      {
+        slope: "Flat",
+        current_use: "Parking Lot",
+        surrounding: ["Residential"],
+        noise_level: "Medium",
+      }
+    ),
     population_density: 5200,
     existing_green_space: 1,
     sunlight_hours: 7.9,
@@ -226,22 +268,30 @@ export const parkSugesstionList = [
     lat: 1,
     lon: 1,
     area: 21000,
-    info: createParkInfo(96, 21000, 4900, 8.1, {
-      vegetation_coverage: 79,
-      soil_quality: "Good",
-      water_sources: true,
-      air_quality_index: 78,
-    }, {
-      population_within_1km: 4900,
-      median_age: 34,
-      income_level: "Mixed",
-      foot_traffic: "High",
-    }, {
-      slope: "Flat",
-      current_use: "Field",
-      surrounding: ["Commercial", "Residential"],
-      noise_level: "Medium",
-    }),
+    info: createParkInfo(
+      96,
+      21000,
+      4900,
+      8.1,
+      {
+        vegetation_coverage: 79,
+        soil_quality: "Good",
+        water_sources: true,
+        air_quality_index: 78,
+      },
+      {
+        population_within_1km: 4900,
+        median_age: 34,
+        income_level: "Mixed",
+        foot_traffic: "High",
+      },
+      {
+        slope: "Flat",
+        current_use: "Field",
+        surrounding: ["Commercial", "Residential"],
+        noise_level: "Medium",
+      }
+    ),
     population_density: 4900,
     existing_green_space: 1,
     sunlight_hours: 8.1,

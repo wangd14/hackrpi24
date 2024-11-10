@@ -1,10 +1,19 @@
+const createParkInfo = (score, area, population_density, sunlight_hours, environmental_data) => {
+  return `Main Data:\nScore = ${score}\nArea = ${area}\nPopulation Density = ${population_density}\nSunlight Hours = ${sunlight_hours}\nEnvironmental Data = ${JSON.stringify(environmental_data)}`;
+};
+
 export const parkSugesstionList = [
   {
     id: 0,
     lat: 1,
     lon: 1,
     area: 25000,
-    info: "Score = 87",
+    info: createParkInfo(80, 25000, 12000, 7.5, {
+      vegetation_coverage: 15,
+      soil_quality: "Good",
+      water_sources: true,
+      air_quality_index: 65,
+    }),
     population_density: 5700,
     existing_green_space: 1,
     sunlight_hours: 7.1,

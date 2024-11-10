@@ -9,15 +9,15 @@ export const parkSugesstionList = [
     sunlight_hours: 7.5,
     environmental_data: {
       vegetation_coverage: 15,
-      soil_quality: Good,
+      soil_quality: "Good",
       water_sources: true,
       air_quality_index: 65,
     },
     demographic_data: {
       population_within_1km: 15000,
       median_age: 34,
-      income_level: Mixed,
-      foot_traffic: High,
+      income_level: "Mixed",
+      foot_traffic: "High",
     },
     site_characteristics: {
       slope: "Flat",
@@ -25,7 +25,12 @@ export const parkSugesstionList = [
       surrounding: ["Commercial", "Residential"],
       noise_level: "Medium",
     },
-    coordinates: [],
+    coordinates: [
+      [-73.6875, 42.728104],
+      [74.6875, -43.728104],
+      [72.6875, -40.728104],
+      [-73.6875, 42.728104],
+    ],
   },
   {
     id: 1,
@@ -37,15 +42,15 @@ export const parkSugesstionList = [
     sunlight_hours: 7.5,
     environmental_data: {
       vegetation_coverage: 15,
-      soil_quality: Good,
+      soil_quality: "Good",
       water_sources: true,
       air_quality_index: 65,
     },
     demographic_data: {
       population_within_1km: 15000,
       median_age: 34,
-      income_level: Mixed,
-      foot_traffic: High,
+      income_level: "Mixed",
+      foot_traffic: "High",
     },
     site_characteristics: {
       slope: "Flat",
@@ -53,7 +58,12 @@ export const parkSugesstionList = [
       surrounding: ["Commercial", "Residential"],
       noise_level: "Medium",
     },
-    coordinates: [],
+    coordinates: [
+      [-73.6875, 42.728104],
+      [-74.6875, 43.728104],
+      [-72.6875, 40.728104],
+      [-73.6875, 42.728104],
+    ],
   },
   {
     id: 2,
@@ -65,15 +75,15 @@ export const parkSugesstionList = [
     sunlight_hours: 7.5,
     environmental_data: {
       vegetation_coverage: 15,
-      soil_quality: Good,
+      soil_quality: "Good",
       water_sources: true,
       air_quality_index: 65,
     },
     demographic_data: {
       population_within_1km: 15000,
       median_age: 34,
-      income_level: Mixed,
-      foot_traffic: High,
+      income_level: "Mixed",
+      foot_traffic: "High",
     },
     site_characteristics: {
       slope: "Flat",
@@ -81,7 +91,12 @@ export const parkSugesstionList = [
       surrounding: ["Commercial", "Residential"],
       noise_level: "Medium",
     },
-    coordinates: [],
+    coordinates: [
+      [-73.6875, 42.728104],
+      [-74.6875, 43.728104],
+      [-72.6875, 40.728104],
+      [-73.6875, 42.728104],
+    ],
   },
   {
     id: 3,
@@ -93,15 +108,15 @@ export const parkSugesstionList = [
     sunlight_hours: 7.5,
     environmental_data: {
       vegetation_coverage: 15,
-      soil_quality: Good,
+      soil_quality: "Good",
       water_sources: true,
       air_quality_index: 65,
     },
     demographic_data: {
       population_within_1km: 15000,
       median_age: 34,
-      income_level: Mixed,
-      foot_traffic: High,
+      income_level: "Mixed",
+      foot_traffic: "High",
     },
     site_characteristics: {
       slope: "Flat",
@@ -109,7 +124,12 @@ export const parkSugesstionList = [
       surrounding: ["Commercial", "Residential"],
       noise_level: "Medium",
     },
-    coordinates: [],
+    coordinates: [
+      [-73.6875, 42.728104],
+      [-74.6875, 43.728104],
+      [-72.6875, 40.728104],
+      [-73.6875, 42.728104],
+    ],
   },
   {
     id: 4,
@@ -121,15 +141,15 @@ export const parkSugesstionList = [
     sunlight_hours: 7.5,
     environmental_data: {
       vegetation_coverage: 15,
-      soil_quality: Good,
+      soil_quality: "Good",
       water_sources: true,
       air_quality_index: 65,
     },
     demographic_data: {
       population_within_1km: 15000,
       median_age: 34,
-      income_level: Mixed,
-      foot_traffic: High,
+      income_level: "Mixed",
+      foot_traffic: "High",
     },
     site_characteristics: {
       slope: "Flat",
@@ -137,6 +157,11 @@ export const parkSugesstionList = [
       surrounding: ["Commercial", "Residential"],
       noise_level: "Medium",
     },
-    coordinates: [],
+    coordinates: [
+      [-73.6875, 42.728104],
+      [-74.6875, 43.728104],
+      [-72.6875, 40.728104],
+      [-73.6875, 42.728104],
+    ],
   },
 ];

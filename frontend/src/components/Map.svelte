@@ -2,6 +2,7 @@
   import { onMount, onDestroy } from 'svelte'
   import { Map, NavigationControl, Marker } from 'maplibre-gl';
   import 'maplibre-gl/dist/maplibre-gl.css';
+  import { parkSugesstionList } from '../../data/parkSuggestionInfo'
 
   let map;
   let mapContainer;
@@ -15,7 +16,7 @@
       throw new Error("You need to configure env API_KEY first, see README");
     }
 
-    const initialState = { lng: -73.6868, lat: 42.7284, zoom: 18 };
+    const initialState = { lng: -73.6875, lat: 42.728104, zoom: 14 };
   
     map = new Map({
       container: mapContainer,
@@ -27,6 +28,52 @@
     new Marker({color: "#FF0000"})
       .setLngLat([-73.6868, 42.7284])
       .addTo(map);
+    
+    map.on('load', () => {
+      map.addSource('testing', {
+        'type': 'geojson',
+        'data': {
+          'type': 'Feature',
+          'geometry': {
+            'type': 'Point',
+            'coordinates': [-73.6875, 42.728104]
+          }
+        }
+      })
+      map.addLayer({
+        'id': 'testing-point',
+        'type': 'symbol',
+        'source': 'testing',
+        'layout': {
+          'icon-image': 'marker-15',  // This uses a default marker icon
+          'icon-size': 1.5
+        }
+      });
+
+    parkSugesstionList.forEach( (data) => {
+      map.addSource(data.id.toString(), {
+        'type': 'geojson',
+        'data': {
+          'type': 'Feature',
+          'geometry': {
+            'type': 'Polygon',
+            'coordinates': data.coordinates
+          }
+        }
+      });
+      map.addLayer({
+        'id': data.id.toString(),
+        'type': 'fill',
+        'source': data.id.toString(),
+        'layout': {},
+        'paint': {
+          'fill-color': '#277',
+          'fill-opacity': 0.35
+        }
+      })
+  
+  })
+  })
 
   });
 

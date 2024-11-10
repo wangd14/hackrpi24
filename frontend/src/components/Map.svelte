@@ -93,7 +93,7 @@
 .map-wrap {
   position: relative;
   width: 100%;
-  height: calc(100vh - 77px); /* calculate height of the screen minus the heading */
+  height: 100vh; /* calculate height of the screen minus the heading */
 }
 
 .map {
@@ -103,9 +103,6 @@
 }
 
 .watermark {
-  position: absolute;
-  left: 10px;
-  bottom: 10px;
-  z-index: 999;
+  visibility: hidden;
 }
 </style>

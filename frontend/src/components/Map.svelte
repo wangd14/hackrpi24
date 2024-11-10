@@ -6,7 +6,7 @@
   import * as turf from '@turf/turf';
   import { parkSugesstionList } from '../../data/parkSuggestionInfo';
   import '@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.css';
-
+  import { drawParkList} from '../../data/drawParkInfo'
 
   let map;
   let mapContainer;
@@ -14,6 +14,7 @@
   let tooltipPosition = { x: 0, y: 0 };
   let showTooltip = false;
   let calculatedArea = '';
+  let index = null;
   let draw;
 
   function updateArea(e) {
@@ -21,8 +22,10 @@
     if (data.features.length > 0) {
       const area = turf.area(data);
       calculatedArea = Math.round(area * 100) / 100;
+      index = Math.round(Math.random() * 5)
     } else {
       calculatedArea = '';
+      index = null;
       if (e.type !== 'draw.delete') {
         alert('Use the draw tools to draw a polygon!');
       }
@@ -142,6 +145,9 @@
       <p>Drawn Area:</p>
       <p><strong>{calculatedArea}</strong></p>
       <p>square meters</p>
+      <p>{drawParkList[index].population_density}</p>
+      <p>{drawParkList[index].sunlight_hours}</p>
+      <p>{drawParkList[index].environmental_data.vegetation_coverage}</p>
     </div>
   {/if}
 

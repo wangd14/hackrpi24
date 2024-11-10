@@ -25,52 +25,56 @@
       zoom: initialState.zoom
     });
     map.addControl(new NavigationControl(), 'top-right');
-    new Marker({color: "#FF0000"})
-      .setLngLat([-73.6868, 42.7284])
-      .addTo(map);
+    // new Marker({color: "#FF0000"})
+    //   .setLngLat([-73.6868, 42.7284])
+    //   .addTo(map);
     
     map.on('load', () => {
-      map.addSource('testing', {
-        'type': 'geojson',
-        'data': {
-          'type': 'Feature',
-          'geometry': {
-            'type': 'Point',
-            'coordinates': [-73.6875, 42.728104]
-          }
-        }
-      })
-      map.addLayer({
-        'id': 'testing-point',
-        'type': 'symbol',
-        'source': 'testing',
-        'layout': {
-          'icon-image': 'marker-15',  // This uses a default marker icon
-          'icon-size': 1.5
-        }
-      });
+      
 
-    parkSugesstionList.forEach( (data) => {
-      map.addSource(data.id.toString(), {
+      parkSugesstionList.forEach( (data) => {
+        console.log(data.id)
+        console.log((data.id).toString())
+        map.addSource((data.id).toString(), {
         'type': 'geojson',
         'data': {
           'type': 'Feature',
           'geometry': {
             'type': 'Polygon',
-            'coordinates': data.coordinates
+            'coordinates': [data.coordinates]
           }
         }
-      });
+      })
       map.addLayer({
-        'id': data.id.toString(),
+        'id': 'testing-point' + (data.id).toString(),
         'type': 'fill',
-        'source': data.id.toString(),
+        'source': (data.id).toString(),
         'layout': {},
         'paint': {
           'fill-color': '#277',
           'fill-opacity': 0.35
         }
-      })
+      });
+      // map.addSource(data.id.toString(), {
+      //   'type': 'geojson',
+      //   'data': {
+      //     'type': 'Feature',
+      //     'geometry': {
+      //       'type': 'Polygon',
+      //       'coordinates': data.coordinates
+      //     }
+      //   }
+      // });
+      // map.addLayer({
+      //   'id': data.id.toString(),
+      //   'type': 'fill',
+      //   'source': data.id.toString(),
+      //   'layout': {},
+      //   'paint': {
+      //     'fill-color': '#277',
+      //     'fill-opacity': 0.35
+      //   }
+      // })
   
   })
   })
